@@ -1,2 +1,0 @@
-# dnsChanger
-WPF .Net framework

@@ -1,0 +1,87 @@
+﻿@using presentation.dashboard.helpers
+@using shared.utility
+@using shared.utility.infrastructure
+@{
+    var parentMenuItem = string.Empty;
+}
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <div class="user-panel">
+            <div class="pull-right image">
+                @{
+                    var user = (User as AccountPrincipal);
+                    var src = !string.IsNullOrWhiteSpace(user?.Avatar) ? user.Avatar : "/dist/img/avatar-anonymous.png".Replace("~", "");
+                    src += "?w=45&h=45&mode=crop";
+                }
+                <img src="@src" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                <p>@(user != null && !string.IsNullOrWhiteSpace(user.FullName) ? user.FullName : "")</p>
+                <p class="en text-left">@(user != null && !string.IsNullOrWhiteSpace(user.IP) ? user.IP : "")</p>
+            </div>
+        </div>
+        <div id="main-menu">
+            <div class="sidebar-menu">
+                @{
+                    var modules = AccountHelper.ModuleReferences().Where(w => w.ParentId == null || w.ParentId == 0).OrderBy(ob => ob.Priority).OrderBy(gb => gb.Category).GroupBy(gb => gb.Category).ToList();
+                    foreach(var parent in modules) {
+                        var categoryName = EnumHelper<ModuleCategory>.GetDisplayValue((ModuleCategory)parent.Key.Value);
+                        <a id="parent_@parent.Key" href="#child_@parent.Key" class="header" data-toggle="collapse" data-parent="#main-menu">
+                            @categoryName
+                            <i class="fa fa-caret-down pull-left"></i>
+                        </a>
+                        <div class="collapse" id="child_@parent.Key">
+                            @foreach(var child in parent) {
+                                var style = string.Empty; //"display: block; padding:12px;";
+                                var admin = (User as AccountPrincipal);
+                                if(child.Path.ToLower() == admin?.Path) {
+                                    style = "background-color:#1e282c;";
+                                    parentMenuItem = $"parent_{parent.Key}";
+                                }
+                                if(!child.Path.ToLower().Contains("home/index")) {
+                                    <a href="@child.Path" class="child clearfix" style="@style">
+                                        <i class="fa fa-book pull-right"></i>
+                                        <span> @child.Title</span>
+                                    </a>
+                                }
+                            }
+                        </div>
+                    }
+                    <a href="#profile" class="header" data-toggle="collapse" data-parent="#main-menu">
+                        پروفایل
+                        <i class="fa fa-caret-down pull-left"></i>
+                    </a>
+                    <div class="collapse" id="profile">
+                        @if(User.Identity.IsAuthenticated) {
+                            <a href="/Account/Changepassword" class="child clearfix">
+                                <i class="fa fa-book pull-right"></i>
+                                <span>تغییر گذرواژه</span>
+                            </a>
+                            using(Html.BeginForm("SignOut", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()" class="child clearfix">
+                                    <i class="fa fa-book pull-right"></i>
+                                    <span>خروج</span>
+                                </a>
+                            }
+                        }
+                        else {
+                            <a href="/account/signIn" class="child clearfix">
+                                <i class="fa fa-book pull-right"></i>
+                                <span>ورود</span>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</aside>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var element = document.getElementById('@parentMenuItem');
+        if (element != undefined)
+            element.click();
+    });
+</script>
