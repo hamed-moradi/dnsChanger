@@ -13,7 +13,10 @@ namespace domain.office.entities {
         public int Id { get; set; }
         [MaxLength(256)]
         public string Name { get; set; }
+        public string Description { get; set; }
         public Guid NetworkId { get; set; }
         public byte Priority { get; set; }
+        [NotMapped]
+        public bool IsConnected { get; set; }
     }
 }

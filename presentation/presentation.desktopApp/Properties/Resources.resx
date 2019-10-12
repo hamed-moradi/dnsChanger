@@ -142,4 +142,19 @@
   <data name="Disconnect" xml:space="preserve">
     <value>Disconnect</value>
   </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="NoConnection" xml:space="preserve">
+    <value>You're not connected to the internet.</value>
+  </data>
+  <data name="NoDNS" xml:space="preserve">
+    <value>Please enter or select your DNS's IP</value>
+  </data>
+  <data name="YoureGoingToDC" xml:space="preserve">
+    <value>The selected network doesn't have connection to the internet and you're going to disconnect.</value>
+  </data>
 </root>

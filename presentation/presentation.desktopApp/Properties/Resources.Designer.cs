@@ -19,7 +19,7 @@ namespace presentation.desktopApp.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -81,6 +81,24 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        internal static string AreYouSure {
+            get {
+                return ResourceManager.GetString("AreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attention.
+        /// </summary>
+        internal static string Attention {
+            get {
+                return ResourceManager.GetString("Attention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connect.
         /// </summary>
         internal static string Connect {
@@ -128,11 +146,38 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You&apos;re not connected to the internet..
+        /// </summary>
+        internal static string NoConnection {
+            get {
+                return ResourceManager.GetString("NoConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter or select your DNS&apos;s IP.
+        /// </summary>
+        internal static string NoDNS {
+            get {
+                return ResourceManager.GetString("NoDNS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected network doesn&apos;t have connection to the internet and you&apos;re going to disconnect..
+        /// </summary>
+        internal static string YoureGoingToDC {
+            get {
+                return ResourceManager.GetString("YoureGoingToDC", resourceCulture);
             }
         }
     }

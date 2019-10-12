@@ -87,6 +87,7 @@
     <Compile Include="helper\control.cs" />
     <Compile Include="helper\dns.cs" />
     <Compile Include="helper\extensions.cs" />
+    <Compile Include="helper\myMessageBox.cs" />
     <Compile Include="helper\notifyIconHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
