@@ -15,9 +15,15 @@ namespace domain.office.containers {
         }
         #endregion
 
-        public async Task<AppConfiguration> Get() {
-            var result = await _myDbContext.AppConfigurations.FindAsync(1);
+        public async Task<AppConfiguration> Get(int id) {
+            var result = await _myDbContext.AppConfigurations.FindAsync(id);
             return result;
+        }
+
+        public async Task<int> Update(AppConfiguration model) {
+            var appConf = await _myDbContext.AppConfigurations.FindAsync(model.Id);
+            appConf = model;
+            return await _myDbContext.SaveChangesAsync();
         }
     }
 }

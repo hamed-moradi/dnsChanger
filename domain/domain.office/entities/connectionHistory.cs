@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace domain.office.entities {
     [Table("ConnectionHistory")]
-    public class ConnectionHistory {
+    public partial class ConnectionHistory {
         [Key]
         public int Id { get; set; }
-        public DateTime CreatedAt { get; set; }
         public string ConnectedIP { get; set; }
         public string PreferredDNSIP { get; set; }
         public string AlternateDNSIP { get; set; }
-        public TimeSpan? Duration { get; set; }
+        public int? Duration { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

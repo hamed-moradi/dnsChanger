@@ -8,14 +8,18 @@ using System.Threading.Tasks;
 
 namespace domain.office.entities {
     [Table("NetworkAdapter")]
-    public class NetworkAdapter {
+    public partial class NetworkAdapter {
         [Key]
         public int Id { get; set; }
         [MaxLength(256)]
         public string Name { get; set; }
         public string Description { get; set; }
-        public Guid NetworkId { get; set; }
+        public Guid AdapterId { get; set; }
         public byte Priority { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
+
+    public partial class NetworkAdapter {
         [NotMapped]
         public bool IsConnected { get; set; }
     }

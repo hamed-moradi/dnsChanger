@@ -157,4 +157,13 @@
   <data name="YoureGoingToDC" xml:space="preserve">
     <value>The selected network doesn't have connection to the internet and you're going to disconnect.</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ReportIssue" xml:space="preserve">
+    <value>Let us know about this issue.</value>
+  </data>
+  <data name="UnknownErrorHappend" xml:space="preserve">
+    <value>It seems some unknown errors happend!</value>
+  </data>
 </root>

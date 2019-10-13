@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace domain.office.entities {
     [Table("DNSAddress")]
-    public class DNSAddress {
+    public partial class DNSAddress {
         [Key]
         public int Id { get; set; }
         public string IP { get; set; }
         public byte Type { get; set; }
         public byte Priority { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

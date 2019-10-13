@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 
 namespace domain.office.entities {
     [Table("AppConfiguration")]
-    public class AppConfiguration {
+    public partial class AppConfiguration {
         [Key]
         public int Id { get; set; }
         public string Language { get; set; }
+        public bool LaunchOnStartup { get; set; }
+        public bool SilentConnection { get; set; }
+        public string LogPath { get; set; }
     }
 }

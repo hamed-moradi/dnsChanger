@@ -87,7 +87,7 @@ namespace presentation.desktopApp {
             byte priority = 1;
             var networkCollection = NetworkListManager.GetNetworks(NetworkConnectivityLevels.All);
             foreach(var network in networkCollection) {
-                var netAdapter = new NetworkAdapter { Name = network.Name, NetworkId = network.NetworkId, IsConnected = network.IsConnectedToInternet };
+                var netAdapter = new NetworkAdapter { Name = network.Name, AdapterId = network.NetworkId, IsConnected = network.IsConnectedToInternet };
                 cmbNetworkConnection.Items.Add(network.Name);
                 if(network.IsConnected && network.IsConnectedToInternet) {
                     netAdapter.Description = netInterfaces.SingleOrDefault(
@@ -137,6 +137,29 @@ namespace presentation.desktopApp {
             ShowSettings();
         }
 
+        public void NotifyIcon_Click(object sender, EventArgs e) {
+            var mouseClick = (MouseEventArgs)e;
+            if(mouseClick.Button == MouseButtons.Right) {
+                return;
+            }
+            if(Visible) {
+                Hide();
+            }
+            else {
+                int iconWidth = NotifyIconHandler.Instance.Icon.Width,
+                    iconHeight = NotifyIconHandler.Instance.Icon.Height,
+                    formLocationX = MousePosition.X - (Width / 2) - (iconWidth / 2),
+                    formLocationY = MousePosition.Y - Height - iconHeight;
+
+                var point = NotifyIconHandler.Instance.GetLocation(false);
+                if(point.HasValue) {
+                    formLocationX = point.Value.X - (Width / 2) + (iconWidth / 4);
+                    formLocationY = point.Value.Y - Height - (iconHeight / 4);
+                }
+                SetDesktopLocation(formLocationX, formLocationY);
+                Show();
+            }
+        }
 
         private void BtnAction_Click(object sender, EventArgs e) {
             switch(btnAction.Tag.ToString().ToLower()) {
@@ -174,7 +197,8 @@ namespace presentation.desktopApp {
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
             NotifyIconHandler.Instance.NotifyIcon.Visible = false;
-            //Application.Exit();
+            Close();
+            Application.Exit();
         }
 
         private void BtnTray_Click(object sender, EventArgs e) {
@@ -182,6 +206,7 @@ namespace presentation.desktopApp {
         }
 
         private void ToolStripExit_Click(object sender, EventArgs e) {
+            Close();
             Application.Exit();
         }
 

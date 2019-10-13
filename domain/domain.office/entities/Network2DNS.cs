@@ -8,16 +8,18 @@ using System.Threading.Tasks;
 
 namespace domain.office.entities {
     [Table("Network2DNS")]
-    public class Network2DNS {
+    public partial class Network2DNS {
         [Key]
         public int Id { get; set; }
         public int NetworkId { get; set; }
-        public int DNSId { get; set; }
+        public int DNSAddressId { get; set; }
         public byte Priority { get; set; }
+    }
 
+    public partial class Network2DNS {
         [ForeignKey("NetworkId")]
-        public NetworkAdapter NetworkConnection { get; set; }
-        [ForeignKey("DNSId")]
+        public NetworkAdapter NetworkAdapter { get; set; }
+        [ForeignKey("DNSAddressId")]
         public DNSAddress DNSAddress { get; set; }
     }
 }

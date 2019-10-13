@@ -137,6 +137,15 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         internal static string Exit {
@@ -164,11 +173,29 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Let us know about this issue..
+        /// </summary>
+        internal static string ReportIssue {
+            get {
+                return ResourceManager.GetString("ReportIssue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It seems some unknown errors happend!.
+        /// </summary>
+        internal static string UnknownErrorHappend {
+            get {
+                return ResourceManager.GetString("UnknownErrorHappend", resourceCulture);
             }
         }
         

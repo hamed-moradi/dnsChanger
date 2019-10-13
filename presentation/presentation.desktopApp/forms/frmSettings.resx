@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="grbUserInterface.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="grpUserInterface.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -139,7 +139,7 @@
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmbLanguage.Parent" xml:space="preserve">
-    <value>grbUserInterface</value>
+    <value>grpUserInterface</value>
   </data>
   <data name="&gt;&gt;cmbLanguage.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -166,33 +166,33 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblLanguage.Parent" xml:space="preserve">
-    <value>grbUserInterface</value>
+    <value>grpUserInterface</value>
   </data>
   <data name="&gt;&gt;lblLanguage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="grbUserInterface.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="grpUserInterface.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 32</value>
   </data>
-  <data name="grbUserInterface.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="grpUserInterface.Size" type="System.Drawing.Size, System.Drawing">
     <value>385, 72</value>
   </data>
-  <data name="grbUserInterface.TabIndex" type="System.Int32, mscorlib">
+  <data name="grpUserInterface.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="grbUserInterface.Text" xml:space="preserve">
+  <data name="grpUserInterface.Text" xml:space="preserve">
     <value>User Interface</value>
   </data>
-  <data name="&gt;&gt;grbUserInterface.Name" xml:space="preserve">
-    <value>grbUserInterface</value>
+  <data name="&gt;&gt;grpUserInterface.Name" xml:space="preserve">
+    <value>grpUserInterface</value>
   </data>
-  <data name="&gt;&gt;grbUserInterface.Type" xml:space="preserve">
+  <data name="&gt;&gt;grpUserInterface.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grbUserInterface.Parent" xml:space="preserve">
+  <data name="&gt;&gt;grpUserInterface.Parent" xml:space="preserve">
     <value>tapGeneral</value>
   </data>
-  <data name="&gt;&gt;grbUserInterface.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;grpUserInterface.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="lblSettingsDescription.AutoSize" type="System.Boolean, mscorlib">
@@ -225,28 +225,97 @@
   <data name="tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;grbPreferences.Name" xml:space="preserve">
-    <value>grbPreferences</value>
+  <data name="grpPreferences.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;grbPreferences.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkSilentConnection.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;grbPreferences.Parent" xml:space="preserve">
-    <value>tapGeneral</value>
+  <data name="chkSilentConnection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 30</value>
   </data>
-  <data name="&gt;&gt;grbPreferences.ZOrder" xml:space="preserve">
+  <data name="chkSilentConnection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 17</value>
+  </data>
+  <data name="chkSilentConnection.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;grbStartup.Name" xml:space="preserve">
-    <value>grbStartup</value>
+  <data name="chkSilentConnection.Text" xml:space="preserve">
+    <value>Silent connection</value>
   </data>
-  <data name="&gt;&gt;grbStartup.Type" xml:space="preserve">
+  <data name="&gt;&gt;chkSilentConnection.Name" xml:space="preserve">
+    <value>chkSilentConnection</value>
+  </data>
+  <data name="&gt;&gt;chkSilentConnection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkSilentConnection.Parent" xml:space="preserve">
+    <value>grpPreferences</value>
+  </data>
+  <data name="&gt;&gt;chkSilentConnection.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpPreferences.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 188</value>
+  </data>
+  <data name="grpPreferences.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 100</value>
+  </data>
+  <data name="grpPreferences.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="grpPreferences.Text" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="&gt;&gt;grpPreferences.Name" xml:space="preserve">
+    <value>grpPreferences</value>
+  </data>
+  <data name="&gt;&gt;grpPreferences.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grbStartup.Parent" xml:space="preserve">
+  <data name="&gt;&gt;grpPreferences.Parent" xml:space="preserve">
     <value>tapGeneral</value>
   </data>
-  <data name="&gt;&gt;grbStartup.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;grpPreferences.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpStartup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.Name" xml:space="preserve">
+    <value>chkLaunchOnStartup</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.Parent" xml:space="preserve">
+    <value>grpStartup</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpStartup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 106</value>
+  </data>
+  <data name="grpStartup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 76</value>
+  </data>
+  <data name="grpStartup.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="grpStartup.Text" xml:space="preserve">
+    <value>Startup</value>
+  </data>
+  <data name="&gt;&gt;grpStartup.Name" xml:space="preserve">
+    <value>grpStartup</value>
+  </data>
+  <data name="&gt;&gt;grpStartup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpStartup.Parent" xml:space="preserve">
+    <value>tapGeneral</value>
+  </data>
+  <data name="&gt;&gt;grpStartup.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="tapGeneral.Location" type="System.Drawing.Point, System.Drawing">
@@ -275,93 +344,6 @@
   </data>
   <data name="&gt;&gt;tapGeneral.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="grbLogFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="btnLogFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 27</value>
-  </data>
-  <data name="btnLogFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 23</value>
-  </data>
-  <data name="btnLogFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnLogFolder.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;btnLogFolder.Name" xml:space="preserve">
-    <value>btnLogFolder</value>
-  </data>
-  <data name="&gt;&gt;btnLogFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnLogFolder.Parent" xml:space="preserve">
-    <value>grbLogFiles</value>
-  </data>
-  <data name="&gt;&gt;btnLogFolder.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txbLogFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 29</value>
-  </data>
-  <data name="txbLogFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 20</value>
-  </data>
-  <data name="txbLogFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txbLogFolder.Name" xml:space="preserve">
-    <value>txbLogFolder</value>
-  </data>
-  <data name="&gt;&gt;txbLogFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txbLogFolder.Parent" xml:space="preserve">
-    <value>grbLogFiles</value>
-  </data>
-  <data name="&gt;&gt;txbLogFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblLogFolder.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblLogFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 32</value>
-  </data>
-  <data name="lblLogFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
-  </data>
-  <data name="lblLogFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblLogFolder.Text" xml:space="preserve">
-    <value>Folder:</value>
-  </data>
-  <data name="&gt;&gt;lblLogFolder.Name" xml:space="preserve">
-    <value>lblLogFolder</value>
-  </data>
-  <data name="&gt;&gt;lblLogFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblLogFolder.Parent" xml:space="preserve">
-    <value>grbLogFiles</value>
-  </data>
-  <data name="&gt;&gt;lblLogFolder.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="grbLogFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 32</value>
-  </data>
-  <data name="grbLogFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 74</value>
-  </data>
-  <data name="grbLogFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grbLogFiles.Text" xml:space="preserve">
-    <value>Log Files</value>
   </data>
   <data name="&gt;&gt;grbLogFiles.Name" xml:space="preserve">
     <value>grbLogFiles</value>
@@ -471,6 +453,168 @@
   <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="chkLaunchOnStartup.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkLaunchOnStartup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 31</value>
+  </data>
+  <data name="chkLaunchOnStartup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 17</value>
+  </data>
+  <data name="chkLaunchOnStartup.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkLaunchOnStartup.Text" xml:space="preserve">
+    <value>Launch on Windows startup</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.Name" xml:space="preserve">
+    <value>chkLaunchOnStartup</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.Parent" xml:space="preserve">
+    <value>grpStartup</value>
+  </data>
+  <data name="&gt;&gt;chkLaunchOnStartup.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grbLogFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.Name" xml:space="preserve">
+    <value>btnLogFolder</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.Parent" xml:space="preserve">
+    <value>grbLogFiles</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.Name" xml:space="preserve">
+    <value>txtLogFolder</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.Parent" xml:space="preserve">
+    <value>grbLogFiles</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.Name" xml:space="preserve">
+    <value>lblLogFolder</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.Parent" xml:space="preserve">
+    <value>grbLogFiles</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="grbLogFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 32</value>
+  </data>
+  <data name="grbLogFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 74</value>
+  </data>
+  <data name="grbLogFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grbLogFiles.Text" xml:space="preserve">
+    <value>Log Files</value>
+  </data>
+  <data name="&gt;&gt;grbLogFiles.Name" xml:space="preserve">
+    <value>grbLogFiles</value>
+  </data>
+  <data name="&gt;&gt;grbLogFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grbLogFiles.Parent" xml:space="preserve">
+    <value>tapAdvanced</value>
+  </data>
+  <data name="&gt;&gt;grbLogFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnLogFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 27</value>
+  </data>
+  <data name="btnLogFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 23</value>
+  </data>
+  <data name="btnLogFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnLogFolder.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.Name" xml:space="preserve">
+    <value>btnLogFolder</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.Parent" xml:space="preserve">
+    <value>grbLogFiles</value>
+  </data>
+  <data name="&gt;&gt;btnLogFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtLogFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 29</value>
+  </data>
+  <data name="txtLogFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="txtLogFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.Name" xml:space="preserve">
+    <value>txtLogFolder</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.Parent" xml:space="preserve">
+    <value>grbLogFiles</value>
+  </data>
+  <data name="&gt;&gt;txtLogFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblLogFolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblLogFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 32</value>
+  </data>
+  <data name="lblLogFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 13</value>
+  </data>
+  <data name="lblLogFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblLogFolder.Text" xml:space="preserve">
+    <value>Folder:</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.Name" xml:space="preserve">
+    <value>lblLogFolder</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.Parent" xml:space="preserve">
+    <value>grbLogFiles</value>
+  </data>
+  <data name="&gt;&gt;lblLogFolder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -528,6 +672,9 @@
   <data name="btnApply.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="btnApply.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
     <value>360, 508</value>
   </data>
@@ -550,138 +697,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnApply.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="grbStartup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Name" xml:space="preserve">
-    <value>checkBox1</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Parent" xml:space="preserve">
-    <value>grbStartup</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="grbStartup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 106</value>
-  </data>
-  <data name="grbStartup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 76</value>
-  </data>
-  <data name="grbStartup.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="grbStartup.Text" xml:space="preserve">
-    <value>Startup</value>
-  </data>
-  <data name="&gt;&gt;grbStartup.Name" xml:space="preserve">
-    <value>grbStartup</value>
-  </data>
-  <data name="&gt;&gt;grbStartup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grbStartup.Parent" xml:space="preserve">
-    <value>tapGeneral</value>
-  </data>
-  <data name="&gt;&gt;grbStartup.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 31</value>
-  </data>
-  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 17</value>
-  </data>
-  <data name="checkBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="checkBox1.Text" xml:space="preserve">
-    <value>Launch on Windows startup</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Name" xml:space="preserve">
-    <value>checkBox1</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Parent" xml:space="preserve">
-    <value>grbStartup</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="grbPreferences.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.Name" xml:space="preserve">
-    <value>chbSilentConnection</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.Parent" xml:space="preserve">
-    <value>grbPreferences</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="grbPreferences.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 188</value>
-  </data>
-  <data name="grbPreferences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 100</value>
-  </data>
-  <data name="grbPreferences.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="grbPreferences.Text" xml:space="preserve">
-    <value>Preferences</value>
-  </data>
-  <data name="&gt;&gt;grbPreferences.Name" xml:space="preserve">
-    <value>grbPreferences</value>
-  </data>
-  <data name="&gt;&gt;grbPreferences.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grbPreferences.Parent" xml:space="preserve">
-    <value>tapGeneral</value>
-  </data>
-  <data name="&gt;&gt;grbPreferences.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chbSilentConnection.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chbSilentConnection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 30</value>
-  </data>
-  <data name="chbSilentConnection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 17</value>
-  </data>
-  <data name="chbSilentConnection.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chbSilentConnection.Text" xml:space="preserve">
-    <value>Silent connection</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.Name" xml:space="preserve">
-    <value>chbSilentConnection</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.Parent" xml:space="preserve">
-    <value>grbPreferences</value>
-  </data>
-  <data name="&gt;&gt;chbSilentConnection.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
