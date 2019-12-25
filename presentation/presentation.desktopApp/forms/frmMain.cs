@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
+using static presentation.desktopApp.helper.DNS;
 
 namespace presentation.desktopApp {
     public partial class MainForm: Form {
@@ -44,13 +45,13 @@ namespace presentation.desktopApp {
             var contextMenu = new ToolStripItem[2];
 
             var toolStripSettings = new ToolStripMenuItem {
-                Text = Properties.Resources.Settings
+                Text = Resources.Settings
             };
             toolStripSettings.Click += ToolStripSettings_Click;
             contextMenu[0] = toolStripSettings;
 
             var toolStripExit = new ToolStripMenuItem {
-                Text = Properties.Resources.Exit
+                Text = Resources.Exit
             };
             toolStripExit.Click += ToolStripExit_Click;
             contextMenu[1] = toolStripExit;
@@ -90,8 +91,11 @@ namespace presentation.desktopApp {
                 var netAdapter = new NetworkAdapter { Name = network.Name, AdapterId = network.NetworkId, IsConnected = network.IsConnectedToInternet };
                 cmbNetworkConnection.Items.Add(network.Name);
                 if(network.IsConnected && network.IsConnectedToInternet) {
-                    netAdapter.Description = netInterfaces.SingleOrDefault(
-                        item => network.Connections.Select(s => s.AdapterId).Contains(Guid.Parse(item.Id)))?.Description;
+                    var netInt = netInterfaces.SingleOrDefault(item => network.Connections.Select(s => s.AdapterId).Contains(Guid.Parse(item.Id)));
+                    if(netInt != null) {
+                        netAdapter.DnsAddress = string.Join(",", netInt.GetIPProperties().DnsAddresses?.Select(s => s.ToString()));
+                        netAdapter.Description = netInt.Description;
+                    }
                     netAdapter.Priority = priority;
                     priority++;
                 }
@@ -99,6 +103,7 @@ namespace presentation.desktopApp {
             }
 
             _connectedNetwork = _networkAdapters.SingleOrDefault(s => s.Priority == 1);
+            SetDNSIPs(_connectedNetwork.DnsAddress);
             SetConnectionImage();
         }
 
@@ -112,9 +117,19 @@ namespace presentation.desktopApp {
             if(isAlternatedValid) {
                 ips.Add(alternatedDNSIP.ToString());
             }
+            ips = new List<string> { "178.22.122.100", "185.51.200.2" };
             return ips.ToArray();
         }
-
+        private void SetDNSIPs(string dns) {
+            var dnsList = dns.Split(',');
+            SetDNSIPs(dnsList);
+        }
+        private void SetDNSIPs(string[] dns) {
+            if(!string.IsNullOrWhiteSpace(dns[0]))
+                iptxtPreferredDNS.Value = dns[0];
+            if(!string.IsNullOrWhiteSpace(dns[1]))
+                iptxtAlternateDNS.Value = dns[1];
+        }
         private void ChangeEnable(bool status) {
             cmbNetworkConnection.Enabled = status;
             iptxtPreferredDNS.Enabled = status;
@@ -171,11 +186,19 @@ namespace presentation.desktopApp {
 
                     var ips = GetDNSIPs();
                     if(ips.Any()) {
-                        DNS.Set(_connectedNetwork.Description, ips);
-                        // todo: change app icon to green one
-                        btnAction.Text = Resources.Disconnect;
-                        btnAction.Tag = "disconnect";
-                        ChangeEnable(false);
+                        var returnValue = DNS.Set(_connectedNetwork.Description, ips);
+                        switch(returnValue) {
+                            case NetworkAdapterConfigurationReturnValue.SuccessfulCompletionNoRebootRequired:
+                                // todo: change app icon to green one
+                                SetDNSIPs(ips);
+                                btnAction.Text = Resources.Disconnect;
+                                btnAction.Tag = "disconnect";
+                                ChangeEnable(false);
+                                break;
+                            default:
+                                MyMessageBox.Show(this, Resources.ResourceManager.GetString(returnValue.ToString("g")), Resources.Attention, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                break;
+                        }
                     }
                     else {
                         MyMessageBox.Show(this, Resources.NoDNS, Resources.Attention, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -197,7 +220,6 @@ namespace presentation.desktopApp {
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
             NotifyIconHandler.Instance.NotifyIcon.Visible = false;
-            Close();
             Application.Exit();
         }
 

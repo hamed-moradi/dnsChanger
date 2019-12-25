@@ -61,6 +61,42 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You need administrator access to set system DNS.
+        /// </summary>
+        internal static string AccessDenied {
+            get {
+                return ResourceManager.GetString("AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already exists.
+        /// </summary>
+        internal static string AlreadyExists {
+            get {
+                return ResourceManager.GetString("AlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while accessing the Registry for the requested information.
+        /// </summary>
+        internal static string AnErrorOccurredWhileAccessingTheRegistryForTheRequestedInformation {
+            get {
+                return ResourceManager.GetString("AnErrorOccurredWhileAccessingTheRegistryForTheRequestedInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while processing an Instance that was returned.
+        /// </summary>
+        internal static string AnErrorOccurredWhileProcessingAnInstanceThatWasReturned {
+            get {
+                return ResourceManager.GetString("AnErrorOccurredWhileProcessingAnInstanceThatWasReturned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon app_connected {
@@ -118,6 +154,15 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DHCP not enabled on adapter.
+        /// </summary>
+        internal static string DHCPNotEnabledOnAdapter {
+            get {
+                return ResourceManager.GetString("DHCPNotEnabledOnAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disconnect.
         /// </summary>
         internal static string Disconnect {
@@ -133,6 +178,15 @@ namespace presentation.desktopApp.Properties {
             get {
                 object obj = ResourceManager.GetObject("disconnected", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duplicate network number.
+        /// </summary>
+        internal static string DuplicateNetworkNumber {
+            get {
+                return ResourceManager.GetString("DuplicateNetworkNumber", resourceCulture);
             }
         }
         
@@ -155,6 +209,177 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File copy failed.
+        /// </summary>
+        internal static string FileCopyFailed {
+            get {
+                return ResourceManager.GetString("FileCopyFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frame/network number bounds error.
+        /// </summary>
+        internal static string FrameNetworkNumberBoundsError {
+            get {
+                return ResourceManager.GetString("FrameNetworkNumberBoundsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interface not configurable.
+        /// </summary>
+        internal static string InterfaceNotConfigurable {
+            get {
+                return ResourceManager.GetString("InterfaceNotConfigurable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid domain name.
+        /// </summary>
+        internal static string InvalidDomainName {
+            get {
+                return ResourceManager.GetString("InvalidDomainName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid file.
+        /// </summary>
+        internal static string InvalidFile {
+            get {
+                return ResourceManager.GetString("InvalidFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid frame type.
+        /// </summary>
+        internal static string InvalidFrameType {
+            get {
+                return ResourceManager.GetString("InvalidFrameType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid gateway IP address.
+        /// </summary>
+        internal static string InvalidGatewayIPAddress {
+            get {
+                return ResourceManager.GetString("InvalidGatewayIPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid host name.
+        /// </summary>
+        internal static string InvalidHostName {
+            get {
+                return ResourceManager.GetString("InvalidHostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid input parameter.
+        /// </summary>
+        internal static string InvalidInputParameter {
+            get {
+                return ResourceManager.GetString("InvalidInputParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid IP address.
+        /// </summary>
+        internal static string InvalidIPAddress {
+            get {
+                return ResourceManager.GetString("InvalidIPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid network number.
+        /// </summary>
+        internal static string InvalidNetworkNumber {
+            get {
+                return ResourceManager.GetString("InvalidNetworkNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid security parameter.
+        /// </summary>
+        internal static string InvalidSecurityParameter {
+            get {
+                return ResourceManager.GetString("InvalidSecurityParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid subnet mask.
+        /// </summary>
+        internal static string InvalidSubnetMask {
+            get {
+                return ResourceManager.GetString("InvalidSubnetMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid system path.
+        /// </summary>
+        internal static string InvalidSystemPath {
+            get {
+                return ResourceManager.GetString("InvalidSystemPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP not enabled on adapter.
+        /// </summary>
+        internal static string IPNotEnabledOnAdapter {
+            get {
+                return ResourceManager.GetString("IPNotEnabledOnAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IPX not enabled on adapter.
+        /// </summary>
+        internal static string IPXNotEnabledOnAdapter {
+            get {
+                return ResourceManager.GetString("IPXNotEnabledOnAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Method not supported on this platform.
+        /// </summary>
+        internal static string MethodNotSupportedOnThisPlatform {
+            get {
+                return ResourceManager.GetString("MethodNotSupportedOnThisPlatform", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More than 5 gateways specified.
+        /// </summary>
+        internal static string MoreThan5GatewaysSpecified {
+            get {
+                return ResourceManager.GetString("MoreThan5GatewaysSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Network adapter not found.
+        /// </summary>
+        internal static string NetworkAdapterNotFound {
+            get {
+                return ResourceManager.GetString("NetworkAdapterNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You&apos;re not connected to the internet..
         /// </summary>
         internal static string NoConnection {
@@ -169,6 +394,60 @@ namespace presentation.desktopApp.Properties {
         internal static string NoDNS {
             get {
                 return ResourceManager.GetString("NoDNS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No primary/secondary WINS server defined.
+        /// </summary>
+        internal static string NoPrimarySecondaryWINSServerDefined {
+            get {
+                return ResourceManager.GetString("NoPrimarySecondaryWINSServerDefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not all DHCP leases could be released/renewed.
+        /// </summary>
+        internal static string NotSllDHCPLeasesCouldBeReleasedRenewed {
+            get {
+                return ResourceManager.GetString("NotSllDHCPLeasesCouldBeReleasedRenewed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        internal static string Other {
+            get {
+                return ResourceManager.GetString("Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Out of memory.
+        /// </summary>
+        internal static string OutOfMemory {
+            get {
+                return ResourceManager.GetString("OutOfMemory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameter out of bounds.
+        /// </summary>
+        internal static string ParameterOutOfBounds {
+            get {
+                return ResourceManager.GetString("ParameterOutOfBounds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path, file or object not found.
+        /// </summary>
+        internal static string PathfileOrObjectNotFound {
+            get {
+                return ResourceManager.GetString("PathfileOrObjectNotFound", resourceCulture);
             }
         }
         
@@ -191,11 +470,92 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successful completion, no reboot required.
+        /// </summary>
+        internal static string SuccessfulCompletionNoRebootRequired {
+            get {
+                return ResourceManager.GetString("SuccessfulCompletionNoRebootRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successful completion, reboot required.
+        /// </summary>
+        internal static string SuccessfulCompletionRebootRequired {
+            get {
+                return ResourceManager.GetString("SuccessfulCompletionRebootRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to configure DHCP service.
+        /// </summary>
+        internal static string UnableToConfigureDHCPService {
+            get {
+                return ResourceManager.GetString("UnableToConfigureDHCPService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to configure TCP/IP service.
+        /// </summary>
+        internal static string UnableToConfigureTCPIPService {
+            get {
+                return ResourceManager.GetString("UnableToConfigureTCPIPService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to notify DNS service.
+        /// </summary>
+        internal static string UnableToNotifyDNSService {
+            get {
+                return ResourceManager.GetString("UnableToNotifyDNSService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to notify service.
+        /// </summary>
+        internal static string UnableToNotifyService {
+            get {
+                return ResourceManager.GetString("UnableToNotifyService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to release DHCP lease.
+        /// </summary>
+        internal static string UnableToReleaseDHCPLease {
+            get {
+                return ResourceManager.GetString("UnableToReleaseDHCPLease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to renew DHCP lease.
+        /// </summary>
+        internal static string UnableToRenewDHCPLease {
+            get {
+                return ResourceManager.GetString("UnableToRenewDHCPLease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to It seems some unknown errors happend!.
         /// </summary>
         internal static string UnknownErrorHappend {
             get {
                 return ResourceManager.GetString("UnknownErrorHappend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown failure.
+        /// </summary>
+        internal static string UnknownFailure {
+            get {
+                return ResourceManager.GetString("UnknownFailure", resourceCulture);
             }
         }
         

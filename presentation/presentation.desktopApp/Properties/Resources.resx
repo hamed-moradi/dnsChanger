@@ -166,4 +166,124 @@
   <data name="UnknownErrorHappend" xml:space="preserve">
     <value>It seems some unknown errors happend!</value>
   </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>You need administrator access to set system DNS</value>
+  </data>
+  <data name="NetworkAdapterNotFound" xml:space="preserve">
+    <value>Network adapter not found</value>
+  </data>
+  <data name="AlreadyExists" xml:space="preserve">
+    <value>Already exists</value>
+  </data>
+  <data name="AnErrorOccurredWhileAccessingTheRegistryForTheRequestedInformation" xml:space="preserve">
+    <value>An error occurred while accessing the Registry for the requested information</value>
+  </data>
+  <data name="AnErrorOccurredWhileProcessingAnInstanceThatWasReturned" xml:space="preserve">
+    <value>An error occurred while processing an Instance that was returned</value>
+  </data>
+  <data name="DHCPNotEnabledOnAdapter" xml:space="preserve">
+    <value>DHCP not enabled on adapter</value>
+  </data>
+  <data name="DuplicateNetworkNumber" xml:space="preserve">
+    <value>Duplicate network number</value>
+  </data>
+  <data name="FileCopyFailed" xml:space="preserve">
+    <value>File copy failed</value>
+  </data>
+  <data name="FrameNetworkNumberBoundsError" xml:space="preserve">
+    <value>Frame/network number bounds error</value>
+  </data>
+  <data name="InterfaceNotConfigurable" xml:space="preserve">
+    <value>Interface not configurable</value>
+  </data>
+  <data name="InvalidDomainName" xml:space="preserve">
+    <value>Invalid domain name</value>
+  </data>
+  <data name="InvalidFile" xml:space="preserve">
+    <value>Invalid file</value>
+  </data>
+  <data name="InvalidFrameType" xml:space="preserve">
+    <value>Invalid frame type</value>
+  </data>
+  <data name="InvalidGatewayIPAddress" xml:space="preserve">
+    <value>Invalid gateway IP address</value>
+  </data>
+  <data name="InvalidHostName" xml:space="preserve">
+    <value>Invalid host name</value>
+  </data>
+  <data name="InvalidInputParameter" xml:space="preserve">
+    <value>Invalid input parameter</value>
+  </data>
+  <data name="InvalidIPAddress" xml:space="preserve">
+    <value>Invalid IP address</value>
+  </data>
+  <data name="InvalidNetworkNumber" xml:space="preserve">
+    <value>Invalid network number</value>
+  </data>
+  <data name="InvalidSecurityParameter" xml:space="preserve">
+    <value>Invalid security parameter</value>
+  </data>
+  <data name="InvalidSubnetMask" xml:space="preserve">
+    <value>Invalid subnet mask</value>
+  </data>
+  <data name="InvalidSystemPath" xml:space="preserve">
+    <value>Invalid system path</value>
+  </data>
+  <data name="IPNotEnabledOnAdapter" xml:space="preserve">
+    <value>IP not enabled on adapter</value>
+  </data>
+  <data name="IPXNotEnabledOnAdapter" xml:space="preserve">
+    <value>IPX not enabled on adapter</value>
+  </data>
+  <data name="MethodNotSupportedOnThisPlatform" xml:space="preserve">
+    <value>Method not supported on this platform</value>
+  </data>
+  <data name="MoreThan5GatewaysSpecified" xml:space="preserve">
+    <value>More than 5 gateways specified</value>
+  </data>
+  <data name="NoPrimarySecondaryWINSServerDefined" xml:space="preserve">
+    <value>No primary/secondary WINS server defined</value>
+  </data>
+  <data name="NotSllDHCPLeasesCouldBeReleasedRenewed" xml:space="preserve">
+    <value>Not all DHCP leases could be released/renewed</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="OutOfMemory" xml:space="preserve">
+    <value>Out of memory</value>
+  </data>
+  <data name="ParameterOutOfBounds" xml:space="preserve">
+    <value>Parameter out of bounds</value>
+  </data>
+  <data name="PathfileOrObjectNotFound" xml:space="preserve">
+    <value>Path, file or object not found</value>
+  </data>
+  <data name="SuccessfulCompletionNoRebootRequired" xml:space="preserve">
+    <value>Successful completion, no reboot required</value>
+  </data>
+  <data name="SuccessfulCompletionRebootRequired" xml:space="preserve">
+    <value>Successful completion, reboot required</value>
+  </data>
+  <data name="UnableToConfigureDHCPService" xml:space="preserve">
+    <value>Unable to configure DHCP service</value>
+  </data>
+  <data name="UnableToConfigureTCPIPService" xml:space="preserve">
+    <value>Unable to configure TCP/IP service</value>
+  </data>
+  <data name="UnableToNotifyDNSService" xml:space="preserve">
+    <value>Unable to notify DNS service</value>
+  </data>
+  <data name="UnableToNotifyService" xml:space="preserve">
+    <value>Unable to notify service</value>
+  </data>
+  <data name="UnableToReleaseDHCPLease" xml:space="preserve">
+    <value>Unable to release DHCP lease</value>
+  </data>
+  <data name="UnableToRenewDHCPLease" xml:space="preserve">
+    <value>Unable to renew DHCP lease</value>
+  </data>
+  <data name="UnknownFailure" xml:space="preserve">
+    <value>Unknown failure</value>
+  </data>
 </root>

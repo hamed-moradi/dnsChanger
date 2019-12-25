@@ -8,31 +8,48 @@ using System.Threading.Tasks;
 
 namespace presentation.desktopApp.helper {
     public class DNS {
-        //private static NetworkInterface GetActiveEthernetOrWifiNetworkInterface() {
-        //    return NetworkInterface.GetAllNetworkInterfaces().FirstOrDefault(
-        //        a => a.OperationalStatus == OperationalStatus.Up &&
-        //        (a.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || a.NetworkInterfaceType == NetworkInterfaceType.Ethernet) &&
-        //        a.GetIPProperties().GatewayAddresses.Any(g => g.Address.AddressFamily.ToString() == "InterNetwork"));
-        //}
-        //public static void Set(string[] ips) {
-        //    var CurrentInterface = GetActiveEthernetOrWifiNetworkInterface();
-        //    if(CurrentInterface == null) return;
-        //    var objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
-        //    var objMOC = objMC.GetInstances();
-        //    foreach(ManagementObject objMO in objMOC) {
-        //        if((bool)objMO["IPEnabled"]) {
-        //            if(objMO["Description"].ToString().Equals(CurrentInterface.Description)) {
-        //                var objdns = objMO.GetMethodParameters("SetDNSServerSearchOrder");
-        //                if(objdns != null) {
-        //                    objdns["DNSServerSearchOrder"] = ips;
-        //                    objMO.InvokeMethod("SetDNSServerSearchOrder", objdns, null);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
-        public static void Set(string netInterfaceDescription, string[] ips) {
+        public enum NetworkAdapterConfigurationReturnValue: int {
+            SuccessfulCompletionNoRebootRequired = 0,
+            SuccessfulCompletionRebootRequired = 1,
+            MethodNotSupportedOnThisPlatform = 64,
+            UnknownFailure = 65,
+            InvalidSubnetMask = 66,
+            AnErrorOccurredWhileProcessingAnInstanceThatWasReturned = 67,
+            InvalidInputParameter = 68,
+            MoreThan5GatewaysSpecified = 69,
+            InvalidIPAddress = 70,
+            InvalidGatewayIPAddress = 71,
+            AnErrorOccurredWhileAccessingTheRegistryForTheRequestedInformation = 72,
+            InvalidDomainName = 73,
+            InvalidHostName = 74,
+            NoPrimarySecondaryWINSServerDefined = 75,
+            InvalidFile = 76,
+            InvalidSystemPath = 77,
+            FileCopyFailed = 78,
+            InvalidSecurityParameter = 79,
+            UnableToConfigureTCPIPService = 80,
+            UnableToConfigureDHCPService = 81,
+            UnableToRenewDHCPLease = 82,
+            UnableToReleaseDHCPLease = 83,
+            IPNotEnabledOnAdapter = 84,
+            IPXNotEnabledOnAdapter = 85,
+            FrameNetworkNumberBoundsError = 86,
+            InvalidFrameType = 87,
+            InvalidNetworkNumber = 88,
+            DuplicateNetworkNumber = 89,
+            ParameterOutOfBounds = 90,
+            AccessDenied = 91,
+            OutOfMemory = 92,
+            AlreadyExists = 93,
+            PathfileOrObjectNotFound = 94,
+            UnableToNotifyService = 95,
+            UnableToNotifyDNSService = 96,
+            InterfaceNotConfigurable = 97,
+            NotSllDHCPLeasesCouldBeReleasedRenewed = 98,
+            DHCPNotEnabledOnAdapter = 100,
+            Other = 101
+        }
+        public static NetworkAdapterConfigurationReturnValue Set(string netInterfaceDescription, string[] ips) {
             var managementClass = new ManagementClass("Win32_NetworkAdapterConfiguration");
             var classInstances = managementClass.GetInstances();
             foreach(ManagementObject manageObj in classInstances) {
@@ -41,11 +58,15 @@ namespace presentation.desktopApp.helper {
                         var dnsServerSearchOrder = manageObj.GetMethodParameters("SetDNSServerSearchOrder");
                         if(dnsServerSearchOrder != null) {
                             dnsServerSearchOrder["DNSServerSearchOrder"] = ips;
-                            manageObj.InvokeMethod("SetDNSServerSearchOrder", dnsServerSearchOrder, null);
+                            var result = manageObj.InvokeMethod("SetDNSServerSearchOrder", dnsServerSearchOrder, null);
+                            return (NetworkAdapterConfigurationReturnValue)int.Parse(result["returnvalue"].ToString());
                         }
                     }
                 }
             }
+            return NetworkAdapterConfigurationReturnValue.Other;
         }
+
+
     }
 }

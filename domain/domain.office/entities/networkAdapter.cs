@@ -14,6 +14,7 @@ namespace domain.office.entities {
         [MaxLength(256)]
         public string Name { get; set; }
         public string Description { get; set; }
+        public string DnsAddress { get; set; }
         public Guid AdapterId { get; set; }
         public byte Priority { get; set; }
         public DateTime CreatedAt { get; set; }
