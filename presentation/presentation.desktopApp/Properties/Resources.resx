@@ -286,4 +286,10 @@
   <data name="UnknownFailure" xml:space="preserve">
     <value>Unknown failure</value>
   </data>
+  <data name="broken_link" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\content\broken-link.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="link" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\content\link.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

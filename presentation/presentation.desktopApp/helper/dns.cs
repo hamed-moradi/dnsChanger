@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAPICodePack.Net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -7,7 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace presentation.desktopApp.helper {
-    public class DNS {
+    public class DNSService {
+        #region ctor
+        public IEnumerable<NetworkInterface> NetworkInterfaces;
+
+        public DNSService() {
+            NetworkInterfaces = NetworkInterface.GetAllNetworkInterfaces().Where(w => w.OperationalStatus == OperationalStatus.Up &&
+                      (w.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || w.NetworkInterfaceType == NetworkInterfaceType.Ethernet) &&
+                      w.GetIPProperties().GatewayAddresses.Any(g => g.Address.AddressFamily.ToString() == "InterNetwork"));
+        }
+        #endregion
         public enum NetworkAdapterConfigurationReturnValue: int {
             SuccessfulCompletionNoRebootRequired = 0,
             SuccessfulCompletionRebootRequired = 1,
@@ -49,12 +59,17 @@ namespace presentation.desktopApp.helper {
             DHCPNotEnabledOnAdapter = 100,
             Other = 101
         }
-        public static NetworkAdapterConfigurationReturnValue Set(string netInterfaceDescription, string[] ips) {
+
+        public NetworkInterface Current(NetworkConnectionCollection networkConnections) {
+            return NetworkInterfaces.SingleOrDefault(item => networkConnections.Select(s => s.AdapterId).Contains(Guid.Parse(item.Id)));
+        }
+
+        public NetworkAdapterConfigurationReturnValue Set(string netIntDesc, string[] ips) {
             var managementClass = new ManagementClass("Win32_NetworkAdapterConfiguration");
             var classInstances = managementClass.GetInstances();
             foreach(ManagementObject manageObj in classInstances) {
                 if((bool)manageObj["IPEnabled"]) {
-                    if(manageObj["Description"].ToString().ToLower().Equals(netInterfaceDescription.ToLower())) {
+                    if(manageObj["Description"].ToString().ToLower().Equals(netIntDesc.ToLower())) {
                         var dnsServerSearchOrder = manageObj.GetMethodParameters("SetDNSServerSearchOrder");
                         if(dnsServerSearchOrder != null) {
                             dnsServerSearchOrder["DNSServerSearchOrder"] = ips;
@@ -67,6 +82,12 @@ namespace presentation.desktopApp.helper {
             return NetworkAdapterConfigurationReturnValue.Other;
         }
 
-
+        public string Get(NetworkConnectionCollection networkConnections) {
+            var current = Current(networkConnections);
+            if(current != null) {
+                return string.Join(",", current.GetIPProperties().DnsAddresses?.Select(s => s.ToString()));
+            }
+            return string.Empty;
+        }
     }
 }

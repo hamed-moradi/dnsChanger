@@ -31,14 +31,22 @@
             this.lblNetworkConnection = new System.Windows.Forms.Label();
             this.cmbNetworkConnection = new System.Windows.Forms.ComboBox();
             this.grbDNS = new System.Windows.Forms.GroupBox();
+            this.picLink = new System.Windows.Forms.PictureBox();
             this.iptxtAlternateDNS = new IPTextBox.IPTextBox();
             this.iptxtPreferredDNS = new IPTextBox.IPTextBox();
             this.btnAction = new System.Windows.Forms.Button();
             this.lblAlternateDNS = new System.Windows.Forms.Label();
             this.lblPreferredDNS = new System.Windows.Forms.Label();
+            this.grbInfo = new System.Windows.Forms.GroupBox();
+            this.lblCurrentAlternateIP = new System.Windows.Forms.Label();
+            this.lblCurrentPreferredIP = new System.Windows.Forms.Label();
+            this.lblCurrentAlternateDNS = new System.Windows.Forms.Label();
+            this.lblCurrentPreferredDNS = new System.Windows.Forms.Label();
             this.grbConnection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConnection)).BeginInit();
             this.grbDNS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLink)).BeginInit();
+            this.grbInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTray
@@ -79,16 +87,17 @@
             // 
             // cmbNetworkConnection
             // 
-            resources.ApplyResources(this.cmbNetworkConnection, "cmbNetworkConnection");
             this.cmbNetworkConnection.BackColor = System.Drawing.Color.White;
             this.cmbNetworkConnection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNetworkConnection.DropDownWidth = 183;
+            resources.ApplyResources(this.cmbNetworkConnection, "cmbNetworkConnection");
             this.cmbNetworkConnection.FormattingEnabled = true;
             this.cmbNetworkConnection.Name = "cmbNetworkConnection";
             // 
             // grbDNS
             // 
             resources.ApplyResources(this.grbDNS, "grbDNS");
+            this.grbDNS.Controls.Add(this.picLink);
             this.grbDNS.Controls.Add(this.iptxtAlternateDNS);
             this.grbDNS.Controls.Add(this.iptxtPreferredDNS);
             this.grbDNS.Controls.Add(this.btnAction);
@@ -97,22 +106,31 @@
             this.grbDNS.Name = "grbDNS";
             this.grbDNS.TabStop = false;
             // 
+            // picLink
+            // 
+            resources.ApplyResources(this.picLink, "picLink");
+            this.picLink.Name = "picLink";
+            this.picLink.TabStop = false;
+            this.picLink.Click += new System.EventHandler(this.picLink_Click);
+            // 
             // iptxtAlternateDNS
             // 
             resources.ApplyResources(this.iptxtAlternateDNS, "iptxtAlternateDNS");
             this.iptxtAlternateDNS.Name = "iptxtAlternateDNS";
+            this.iptxtAlternateDNS.Value = "...";
             // 
             // iptxtPreferredDNS
             // 
             resources.ApplyResources(this.iptxtPreferredDNS, "iptxtPreferredDNS");
             this.iptxtPreferredDNS.Name = "iptxtPreferredDNS";
+            this.iptxtPreferredDNS.Value = "...";
             // 
             // btnAction
             // 
             resources.ApplyResources(this.btnAction, "btnAction");
             this.btnAction.FlatAppearance.BorderSize = 0;
             this.btnAction.Name = "btnAction";
-            this.btnAction.Tag = "connect";
+            this.btnAction.Tag = "";
             this.btnAction.UseVisualStyleBackColor = true;
             // 
             // lblAlternateDNS
@@ -125,11 +143,42 @@
             resources.ApplyResources(this.lblPreferredDNS, "lblPreferredDNS");
             this.lblPreferredDNS.Name = "lblPreferredDNS";
             // 
+            // grbInfo
+            // 
+            resources.ApplyResources(this.grbInfo, "grbInfo");
+            this.grbInfo.Controls.Add(this.lblCurrentAlternateIP);
+            this.grbInfo.Controls.Add(this.lblCurrentPreferredIP);
+            this.grbInfo.Controls.Add(this.lblCurrentAlternateDNS);
+            this.grbInfo.Controls.Add(this.lblCurrentPreferredDNS);
+            this.grbInfo.Name = "grbInfo";
+            this.grbInfo.TabStop = false;
+            // 
+            // lblCurrentAlternateIP
+            // 
+            resources.ApplyResources(this.lblCurrentAlternateIP, "lblCurrentAlternateIP");
+            this.lblCurrentAlternateIP.Name = "lblCurrentAlternateIP";
+            // 
+            // lblCurrentPreferredIP
+            // 
+            resources.ApplyResources(this.lblCurrentPreferredIP, "lblCurrentPreferredIP");
+            this.lblCurrentPreferredIP.Name = "lblCurrentPreferredIP";
+            // 
+            // lblCurrentAlternateDNS
+            // 
+            resources.ApplyResources(this.lblCurrentAlternateDNS, "lblCurrentAlternateDNS");
+            this.lblCurrentAlternateDNS.Name = "lblCurrentAlternateDNS";
+            // 
+            // lblCurrentPreferredDNS
+            // 
+            resources.ApplyResources(this.lblCurrentPreferredDNS, "lblCurrentPreferredDNS");
+            this.lblCurrentPreferredDNS.Name = "lblCurrentPreferredDNS";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ControlBox = false;
+            this.Controls.Add(this.grbInfo);
             this.Controls.Add(this.grbDNS);
             this.Controls.Add(this.grbConnection);
             this.Controls.Add(this.btnSettings);
@@ -145,6 +194,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picConnection)).EndInit();
             this.grbDNS.ResumeLayout(false);
             this.grbDNS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLink)).EndInit();
+            this.grbInfo.ResumeLayout(false);
+            this.grbInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -163,6 +215,12 @@
         private IPTextBox.IPTextBox iptxtPreferredDNS;
         private IPTextBox.IPTextBox iptxtAlternateDNS;
         private System.Windows.Forms.PictureBox picConnection;
+        private System.Windows.Forms.GroupBox grbInfo;
+        private System.Windows.Forms.Label lblCurrentAlternateIP;
+        private System.Windows.Forms.Label lblCurrentPreferredIP;
+        private System.Windows.Forms.Label lblCurrentAlternateDNS;
+        private System.Windows.Forms.Label lblCurrentPreferredDNS;
+        private System.Windows.Forms.PictureBox picLink;
     }
 }
 

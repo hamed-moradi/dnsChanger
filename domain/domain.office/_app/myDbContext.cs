@@ -33,6 +33,6 @@ namespace domain.office._app {
         public virtual DbSet<ConnectionHistory> ConnectionHistories { get; set; }
         public virtual DbSet<DNSAddress> DNSAddresses { get; set; }
         public virtual DbSet<Network2DNS> Network2DNSes { get; set; }
-        public virtual DbSet<NetworkAdapter> NetworkConnections { get; set; }
+        public virtual DbSet<NetworkAdapter> NetworkAdapters { get; set; }
     }
 }

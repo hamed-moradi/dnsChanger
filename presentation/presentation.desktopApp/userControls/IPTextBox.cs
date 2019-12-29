@@ -37,7 +37,7 @@ namespace IPTextBox {
             txtSegment4.Pasted += TxtSegment_Pasted;
 
             EnabledChanged += This_EnabledChanged;
-            
+
             cmbIPs.SelectedIndexChanged += CmbIPs_SelectedIndexChanged;
         }
 
@@ -50,7 +50,7 @@ namespace IPTextBox {
             txtSegment2.Enabled = ipTextBox.Enabled;
             txtSegment3.Enabled = ipTextBox.Enabled;
             txtSegment4.Enabled = ipTextBox.Enabled;
-            
+
             lblDot1.Enabled = ipTextBox.Enabled;
             lblDot2.Enabled = ipTextBox.Enabled;
             lblDot3.Enabled = ipTextBox.Enabled;
@@ -161,6 +161,10 @@ namespace IPTextBox {
                 txtSegment3.Text = ipSegments[2];
                 txtSegment4.Text = ipSegments[3];
             }
+        }
+
+        public ComboBox.ObjectCollection Items {
+            get { return cmbIPs.Items; }
         }
     }
 }

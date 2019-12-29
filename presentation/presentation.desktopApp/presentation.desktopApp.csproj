@@ -154,6 +154,7 @@
     <Content Include="app.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="content\broken-link.ico" />
     <Content Include="content\icons8-connected-16.png" />
     <Content Include="content\icons8-connected-32.png" />
     <Content Include="content\icons8-connected-48.png" />
@@ -174,6 +175,7 @@
     <Content Include="content\icons8-dyndns-64-red.png" />
     <Content Include="content\icons8-dyndns-96-green.png" />
     <Content Include="content\icons8-dyndns-96-red.png" />
+    <None Include="content\link.ico" />
     <None Include="content\disconnected.ico" />
     <None Include="content\app-disconnected.ico" />
     <None Include="content\app-connected.ico" />

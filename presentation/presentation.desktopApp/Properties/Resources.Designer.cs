@@ -135,6 +135,16 @@ namespace presentation.desktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon broken_link {
+            get {
+                object obj = ResourceManager.GetObject("broken_link", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connect.
         /// </summary>
         internal static string Connect {
@@ -349,6 +359,16 @@ namespace presentation.desktopApp.Properties {
         internal static string IPXNotEnabledOnAdapter {
             get {
                 return ResourceManager.GetString("IPXNotEnabledOnAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon link {
+            get {
+                object obj = ResourceManager.GetObject("link", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

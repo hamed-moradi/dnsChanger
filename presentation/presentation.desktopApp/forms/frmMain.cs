@@ -11,13 +11,14 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
-using static presentation.desktopApp.helper.DNS;
+using static presentation.desktopApp.helper.DNSService;
 
 namespace presentation.desktopApp {
     public partial class MainForm: Form {
         #region ctor
         private frmSettings _frmSettings;
         private NetworkAdapter _connectedNetwork;
+        private bool _linkedDNS = true;
         private readonly List<NetworkAdapter> _networkAdapters;
 
         public MainForm() {
@@ -63,6 +64,11 @@ namespace presentation.desktopApp {
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.SuspendLayout();
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.Items.AddRange(SettingUpContextMenu());
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.ResumeLayout(false);
+
+            picLink.Image = new Icon(Resources.link, 21, 21).ToBitmap();
+
+            iptxtPreferredDNS.Items.AddRange(new object[] { "178.22.122.100" });
+            iptxtAlternateDNS.Items.AddRange(new object[] { "185.51.200.2" });
         }
         private void ShowSettings() {
             Hide();
@@ -81,9 +87,7 @@ namespace presentation.desktopApp {
         }
 
         private void GetWindowsNetworkConnection() {
-            var netInterfaces = NetworkInterface.GetAllNetworkInterfaces().Where(w => w.OperationalStatus == OperationalStatus.Up &&
-                 (w.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || w.NetworkInterfaceType == NetworkInterfaceType.Ethernet) &&
-                 w.GetIPProperties().GatewayAddresses.Any(g => g.Address.AddressFamily.ToString() == "InterNetwork"));
+            var dnsSrv = new DNSService();
 
             byte priority = 1;
             var networkCollection = NetworkListManager.GetNetworks(NetworkConnectivityLevels.All);
@@ -91,11 +95,9 @@ namespace presentation.desktopApp {
                 var netAdapter = new NetworkAdapter { Name = network.Name, AdapterId = network.NetworkId, IsConnected = network.IsConnectedToInternet };
                 cmbNetworkConnection.Items.Add(network.Name);
                 if(network.IsConnected && network.IsConnectedToInternet) {
-                    var netInt = netInterfaces.SingleOrDefault(item => network.Connections.Select(s => s.AdapterId).Contains(Guid.Parse(item.Id)));
-                    if(netInt != null) {
-                        netAdapter.DnsAddress = string.Join(",", netInt.GetIPProperties().DnsAddresses?.Select(s => s.ToString()));
-                        netAdapter.Description = netInt.Description;
-                    }
+                    netAdapter.ConnectionCollection = network.Connections;
+                    netAdapter.Description = dnsSrv.Current(network.Connections).Description;
+                    netAdapter.DnsAddress = dnsSrv.Get(network.Connections);
                     netAdapter.Priority = priority;
                     priority++;
                 }
@@ -103,21 +105,20 @@ namespace presentation.desktopApp {
             }
 
             _connectedNetwork = _networkAdapters.SingleOrDefault(s => s.Priority == 1);
-            SetDNSIPs(_connectedNetwork.DnsAddress);
+            SetCurrentDNSIPs(_connectedNetwork.DnsAddress);
             SetConnectionImage();
         }
 
         private string[] GetDNSIPs() {
-            var ips = new List<string>();
             var isPreferredValid = IPAddress.TryParse(iptxtPreferredDNS.Value, out var preferredDNSIP);
             var isAlternatedValid = IPAddress.TryParse(iptxtAlternateDNS.Value, out var alternatedDNSIP);
+            var ips = new List<string>();
             if(isPreferredValid) {
                 ips.Add(preferredDNSIP.ToString());
             }
             if(isAlternatedValid) {
                 ips.Add(alternatedDNSIP.ToString());
             }
-            ips = new List<string> { "178.22.122.100", "185.51.200.2" };
             return ips.ToArray();
         }
         private void SetDNSIPs(string dns) {
@@ -129,6 +130,16 @@ namespace presentation.desktopApp {
                 iptxtPreferredDNS.Value = dns[0];
             if(!string.IsNullOrWhiteSpace(dns[1]))
                 iptxtAlternateDNS.Value = dns[1];
+        }
+        private void SetCurrentDNSIPs(string dns) {
+            var dnsList = dns.Split(',');
+            SetCurrentDNSIPs(dnsList);
+        }
+        private void SetCurrentDNSIPs(string[] dns) {
+            if(!string.IsNullOrWhiteSpace(dns[0]))
+                lblCurrentPreferredIP.Text = dns[0];
+            if(!string.IsNullOrWhiteSpace(dns[1]))
+                lblCurrentAlternateIP.Text = dns[1];
         }
         private void ChangeEnable(bool status) {
             cmbNetworkConnection.Enabled = status;
@@ -177,39 +188,20 @@ namespace presentation.desktopApp {
         }
 
         private void BtnAction_Click(object sender, EventArgs e) {
-            switch(btnAction.Tag.ToString().ToLower()) {
-                case "connect":
-                    if(_connectedNetwork == null) {
-                        MyMessageBox.Show(this, Resources.NoConnection, Resources.Attention, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        break;
-                    }
+            if(_connectedNetwork == null) {
+                MyMessageBox.Show(this, Resources.NoConnection, Resources.Attention, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-                    var ips = GetDNSIPs();
-                    if(ips.Any()) {
-                        var returnValue = DNS.Set(_connectedNetwork.Description, ips);
-                        switch(returnValue) {
-                            case NetworkAdapterConfigurationReturnValue.SuccessfulCompletionNoRebootRequired:
-                                // todo: change app icon to green one
-                                SetDNSIPs(ips);
-                                btnAction.Text = Resources.Disconnect;
-                                btnAction.Tag = "disconnect";
-                                ChangeEnable(false);
-                                break;
-                            default:
-                                MyMessageBox.Show(this, Resources.ResourceManager.GetString(returnValue.ToString("g")), Resources.Attention, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                break;
-                        }
-                    }
-                    else {
-                        MyMessageBox.Show(this, Resources.NoDNS, Resources.Attention, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+            var ips = GetDNSIPs();
+            var returnValue = new DNSService().Set(_connectedNetwork.Description, ips);
+            switch(returnValue) {
+                case NetworkAdapterConfigurationReturnValue.SuccessfulCompletionNoRebootRequired:
+                    SetCurrentDNSIPs(new DNSService().Get(_connectedNetwork.ConnectionCollection));
+                    //ChangeEnable(false);
                     break;
-                case "disconnect":
-                    DNS.Set(_connectedNetwork.Description, null);
-                    // todo: change app icon to red one
-                    btnAction.Text = Resources.Connect;
-                    btnAction.Tag = "connect";
-                    ChangeEnable(true);
+                default:
+                    MyMessageBox.Show(this, Resources.ResourceManager.GetString(returnValue.ToString("g")), Resources.Attention, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
             }
         }
@@ -244,12 +236,23 @@ namespace presentation.desktopApp {
             else {
                 if(MyMessageBox.Show(Resources.YoureGoingToDC, Resources.AreYouSure,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
-                    DNS.Set(_connectedNetwork.Description, null);
+                    new DNSService().Set(_connectedNetwork.Description, null);
                     _connectedNetwork = null;
                     ChangeEnable(false);
                 }
             }
             SetConnectionImage();
+        }
+
+        private void picLink_Click(object sender, EventArgs e) {
+            if(_linkedDNS) {
+                _linkedDNS = false;
+                picLink.Image = new Icon(Resources.broken_link, 21, 21).ToBitmap();
+            }
+            else {
+                _linkedDNS = true;
+                picLink.Image = new Icon(Resources.link, 21, 21).ToBitmap();
+            }
         }
     }
 }

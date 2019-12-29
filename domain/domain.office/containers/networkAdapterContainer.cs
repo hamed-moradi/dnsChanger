@@ -15,15 +15,19 @@ namespace domain.office.containers {
         }
         #endregion
 
-        public async Task<NetworkAdapter> Add(NetworkAdapter model) {
-            var result = _myDbContext.NetworkConnections.Add(model);
-            await _myDbContext.SaveChangesAsync();
-            return result;
+        public NetworkAdapter Add(NetworkAdapter model) {
+            var netAdaptor = _myDbContext.NetworkAdapters.FirstOrDefault(f => f.AdapterId == model.AdapterId);
+            if(netAdaptor is null) {
+                var result = _myDbContext.NetworkAdapters.Add(model);
+                _myDbContext.SaveChanges();
+                return result;
+            }
+            return model;
         }
 
-        public async Task<int> Remove(NetworkAdapter model) {
-            _myDbContext.NetworkConnections.Remove(model);
-            return await _myDbContext.SaveChangesAsync();
+        public int Remove(NetworkAdapter model) {
+            _myDbContext.NetworkAdapters.Remove(model);
+            return _myDbContext.SaveChanges();
         }
     }
 }
