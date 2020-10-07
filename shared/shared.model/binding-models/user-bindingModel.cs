@@ -10,13 +10,10 @@ namespace shared.model.bindingModels {
         public string DeviceId { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }
-        [Phone]
         public string CellPhone { get; set; }
-        [EmailAddress]
         public string Email { get; set; }
     }
     public class ChangeMe_BindingModel: FullHeader_BindingModel {
-        [Phone]
         public string CellPhone { get; set; }
     }
     public class User_Get_BindingModel: Paging_BindingModel {
@@ -25,9 +22,7 @@ namespace shared.model.bindingModels {
         public long? ToDate { get; set; }
     }
     public class User_TwoFactorAuthentication_BindingModel: FullHeader_BindingModel {
-        [Required]
         public int VerificationCode { get; set; }
-        [Required]
         public string Password { get; set; }
     }
     public class User_Verify_BindingModel: FullHeader_BindingModel {

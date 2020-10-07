@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using presentation.desktopApp.helper;
+using Presentation.DesktopApp.Helper;
 using System.Net;
+using Presentation.DesktopApp;
 
 namespace IPTextBox {
     public partial class IPTextBox: UserControl {
@@ -37,14 +38,10 @@ namespace IPTextBox {
             txtSegment4.Pasted += TxtSegment_Pasted;
 
             EnabledChanged += This_EnabledChanged;
-
-            cmbIPs.SelectedIndexChanged += CmbIPs_SelectedIndexChanged;
         }
 
         private void This_EnabledChanged(object sender, EventArgs e) {
             var ipTextBox = (IPTextBox)sender;
-
-            cmbIPs.Enabled = ipTextBox.Enabled;
 
             txtSegment1.Enabled = ipTextBox.Enabled;
             txtSegment2.Enabled = ipTextBox.Enabled;
@@ -139,15 +136,6 @@ namespace IPTextBox {
         private void TxtSegment_Pasted(object sender, ClipboardEventArgs e) {
             SetValueFromClipBoard();
         }
-
-        private void CmbIPs_SelectedIndexChanged(object sender, EventArgs e) {
-            if(cmbIPs.SelectedItem != null) {
-                var isValidIP = IPAddress.TryParse(cmbIPs.SelectedItem.ToString(), out var ipAddress);
-                if(isValidIP) {
-                    Value = ipAddress.ToString();
-                }
-            }
-        }
         #endregion
 
         public string Value {
@@ -161,10 +149,6 @@ namespace IPTextBox {
                 txtSegment3.Text = ipSegments[2];
                 txtSegment4.Text = ipSegments[3];
             }
-        }
-
-        public ComboBox.ObjectCollection Items {
-            get { return cmbIPs.Items; }
         }
     }
 }

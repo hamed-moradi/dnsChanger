@@ -1,8 +1,8 @@
-﻿using domain.office.entities;
+﻿using Presentation.DesktopApp.Entities;
 using Microsoft.WindowsAPICodePack.Net;
-using presentation.desktopApp.forms;
-using presentation.desktopApp.helper;
-using presentation.desktopApp.Properties;
+using Presentation.DesktopApp.forms;
+using Presentation.DesktopApp.Helper;
+using Presentation.DesktopApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,9 +11,9 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
-using static presentation.desktopApp.helper.DNSService;
+using static Presentation.DesktopApp.Helper.DNSService;
 
-namespace presentation.desktopApp {
+namespace Presentation.DesktopApp {
     public partial class MainForm: Form {
         #region ctor
         private frmSettings _frmSettings;
@@ -212,7 +212,6 @@ namespace presentation.desktopApp {
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
             NotifyIconHandler.Instance.NotifyIcon.Visible = false;
-            Application.Exit();
         }
 
         private void BtnTray_Click(object sender, EventArgs e) {
@@ -220,7 +219,6 @@ namespace presentation.desktopApp {
         }
 
         private void ToolStripExit_Click(object sender, EventArgs e) {
-            Close();
             Application.Exit();
         }
 

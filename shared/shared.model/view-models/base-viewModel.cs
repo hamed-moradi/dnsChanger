@@ -10,7 +10,7 @@ namespace shared.model.viewModels {
         public string Message { get; set; }
         public object Data { get; set; }
         public int? TotalPages { get; set; }
-        public string Version { get { return Assembly.GetEntryAssembly().GetName().Version.ToString(); } }
+        //public string Version { get { return Assembly.GetEntryAssembly().GetName().Version.ToString(); } }
     }
     public class Base_Paging_ViewModel: IBase_ViewModel {
         public int PageIndex { get; set; } = 1;

@@ -60,30 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="containers\appConfigurationContainer.cs" />
-    <Compile Include="containers\connectionHistoryContainer.cs" />
-    <Compile Include="containers\dnsAddressContainer.cs" />
-    <Compile Include="containers\network2DNSContainer.cs" />
-    <Compile Include="containers\networkAdapterContainer.cs" />
-    <Compile Include="containers\NotifyAreaUtility.cs" />
-    <Compile Include="containers\NotifyIconUtility.cs" />
-    <Compile Include="entities\appConfiguration.cs" />
-    <Compile Include="entities\connectionHistory.cs" />
-    <Compile Include="entities\dnsAddress.cs" />
-    <Compile Include="entities\network2DNS.cs" />
-    <Compile Include="entities\networkAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_app\animation.cs" />
-    <Compile Include="_app\appSettings.cs" />
-    <Compile Include="_app\enum.cs" />
-    <Compile Include="_app\nativeMethods.cs" />
-    <Compile Include="_app\myDbContext.cs" />
-    <Compile Include="_app\sysInfo.cs" />
-    <Compile Include="_app\taskbar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_app\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

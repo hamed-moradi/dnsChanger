@@ -1,4 +1,4 @@
-﻿namespace presentation.desktopApp {
+﻿namespace Presentation.DesktopApp {
     partial class MainForm {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,8 @@
             this.cmbNetworkConnection = new System.Windows.Forms.ComboBox();
             this.grbDNS = new System.Windows.Forms.GroupBox();
             this.picLink = new System.Windows.Forms.PictureBox();
-            this.iptxtAlternateDNS = new IPTextBox.IPTextBox();
-            this.iptxtPreferredDNS = new IPTextBox.IPTextBox();
+            this.iptxtAlternateDNS = new IPComboBox.IPComboBox();
+            this.iptxtPreferredDNS = new IPComboBox.IPComboBox();
             this.btnAction = new System.Windows.Forms.Button();
             this.lblAlternateDNS = new System.Windows.Forms.Label();
             this.lblPreferredDNS = new System.Windows.Forms.Label();
@@ -212,8 +212,8 @@
         private System.Windows.Forms.Label lblAlternateDNS;
         private System.Windows.Forms.Label lblPreferredDNS;
         private System.Windows.Forms.Button btnAction;
-        private IPTextBox.IPTextBox iptxtPreferredDNS;
-        private IPTextBox.IPTextBox iptxtAlternateDNS;
+        private IPComboBox.IPComboBox iptxtPreferredDNS;
+        private IPComboBox.IPComboBox iptxtAlternateDNS;
         private System.Windows.Forms.PictureBox picConnection;
         private System.Windows.Forms.GroupBox grbInfo;
         private System.Windows.Forms.Label lblCurrentAlternateIP;

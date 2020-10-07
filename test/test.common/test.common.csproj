@@ -32,9 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\Domain.Application\domain.application.csproj" />
     <ProjectReference Include="..\..\presentation\presentation.webApi\presentation.webApi.csproj" />
-    <ProjectReference Include="..\..\shared\shared.resource\shared.resource.csproj" />
   </ItemGroup>
 
   <ItemGroup>

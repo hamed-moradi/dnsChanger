@@ -1,4 +1,4 @@
-﻿using domain.office.containers;
+﻿using Presentation.DesktopApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace presentation.desktopApp.helper {
+namespace Presentation.DesktopApp.Helper {
     sealed class NotifyIconHandler {
         #region ctor
         private static NotifyIconUtility _instance;

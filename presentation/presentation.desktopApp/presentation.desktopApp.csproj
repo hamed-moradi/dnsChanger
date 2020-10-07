@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>presentation.desktopApp</RootNamespace>
     <AssemblyName>presentation.desktopApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -53,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.111.0\lib\net45\System.Data.SQLite.dll</HintPath>
@@ -75,23 +78,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\frmMain.cs">
+    <Compile Include="Services\AppConfigurationService.cs" />
+    <Compile Include="Services\ConnectionHistoryService.cs" />
+    <Compile Include="Services\DNSAddressService.cs" />
+    <Compile Include="Services\Network2DNSService.cs" />
+    <Compile Include="Services\NetworkAdapterService.cs" />
+    <Compile Include="Helper\NotifyAreaUtility.cs" />
+    <Compile Include="Helper\NotifyIconUtility.cs" />
+    <Compile Include="Entities\AppConfiguration.cs" />
+    <Compile Include="Entities\ConnectionHistory.cs" />
+    <Compile Include="Entities\DNSAddress.cs" />
+    <Compile Include="Entities\Network2DNS.cs" />
+    <Compile Include="Entities\NetworkAdapter.cs" />
+    <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmMain.Designer.cs">
+    <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmSettings.cs">
+    <Compile Include="Forms\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmSettings.Designer.cs">
+    <Compile Include="Forms\frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="helper\control.cs" />
-    <Compile Include="helper\dns.cs" />
-    <Compile Include="helper\extensions.cs" />
-    <Compile Include="helper\myMessageBox.cs" />
-    <Compile Include="helper\notifyIconHandler.cs" />
+    <Compile Include="Helper\ControlHelper.cs" />
+    <Compile Include="Helper\DNSHelper.cs" />
+    <Compile Include="Helper\CustomeMessageBox.cs" />
+    <Compile Include="Helper\NotifyIconHandler.cs" />
+    <Compile Include="Infrastructure\Animation.cs" />
+    <Compile Include="_App\AppSettings.cs" />
+    <Compile Include="_App\Enum.cs" />
+    <Compile Include="_App\SqliteDbContext.cs" />
+    <Compile Include="Infrastructure\NativeMethods.cs" />
+    <Compile Include="Infrastructure\SysInfo.cs" />
+    <Compile Include="Infrastructure\Taskbar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -105,21 +126,28 @@
       <DependentUpon>Resources.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="userControls\IPTextBox.cs">
+    <Compile Include="UserControls\IPTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="userControls\IPTextBox.designer.cs">
+    <Compile Include="UserControls\IPTextBox.designer.cs">
       <DependentUpon>IPTextBox.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="forms\frmMain.en-US.resx">
+    <Compile Include="UserControls\IPComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\IPComboBox.designer.cs">
+      <DependentUpon>IPComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Eextension.cs" />
+    <EmbeddedResource Include="Forms\frmMain.en-US.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmMain.resx">
+    <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmSettings.resx">
+    <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.en.resx">
@@ -131,8 +159,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="userControls\IPTextBox.resx">
+    <EmbeddedResource Include="UserControls\IPTextBox.resx">
       <DependentUpon>IPTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\IPComboBox.resx">
+      <DependentUpon>IPComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="app.manifest" />
@@ -154,39 +185,34 @@
     <Content Include="app.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="content\broken-link.ico" />
-    <Content Include="content\icons8-connected-16.png" />
-    <Content Include="content\icons8-connected-32.png" />
-    <Content Include="content\icons8-connected-48.png" />
-    <Content Include="content\icons8-connected-64.png" />
-    <Content Include="content\icons8-connected-96.png" />
-    <Content Include="content\icons8-disconnected-16.png" />
-    <Content Include="content\icons8-disconnected-32.png" />
-    <Content Include="content\icons8-disconnected-48.png" />
-    <Content Include="content\icons8-disconnected-64.png" />
-    <Content Include="content\icons8-disconnected-96.png" />
-    <Content Include="content\icons8-dyndns-16-green.png" />
-    <Content Include="content\icons8-dyndns-16-red.png" />
-    <Content Include="content\icons8-dyndns-32-green.png" />
-    <Content Include="content\icons8-dyndns-32-red.png" />
-    <Content Include="content\icons8-dyndns-48-green.png" />
-    <Content Include="content\icons8-dyndns-48-red.png" />
-    <Content Include="content\icons8-dyndns-64-green.png" />
-    <Content Include="content\icons8-dyndns-64-red.png" />
-    <Content Include="content\icons8-dyndns-96-green.png" />
-    <Content Include="content\icons8-dyndns-96-red.png" />
-    <None Include="content\link.ico" />
-    <None Include="content\disconnected.ico" />
-    <None Include="content\app-disconnected.ico" />
-    <None Include="content\app-connected.ico" />
-    <None Include="content\connected.ico" />
+    <None Include="Content\broken-link.ico" />
+    <Content Include="Content\icons8-connected-16.png" />
+    <Content Include="Content\icons8-connected-32.png" />
+    <Content Include="Content\icons8-connected-48.png" />
+    <Content Include="Content\icons8-connected-64.png" />
+    <Content Include="Content\icons8-connected-96.png" />
+    <Content Include="Content\icons8-disconnected-16.png" />
+    <Content Include="Content\icons8-disconnected-32.png" />
+    <Content Include="Content\icons8-disconnected-48.png" />
+    <Content Include="Content\icons8-disconnected-64.png" />
+    <Content Include="Content\icons8-disconnected-96.png" />
+    <Content Include="Content\icons8-dyndns-16-green.png" />
+    <Content Include="Content\icons8-dyndns-16-red.png" />
+    <Content Include="Content\icons8-dyndns-32-green.png" />
+    <Content Include="Content\icons8-dyndns-32-red.png" />
+    <Content Include="Content\icons8-dyndns-48-green.png" />
+    <Content Include="Content\icons8-dyndns-48-red.png" />
+    <Content Include="Content\icons8-dyndns-64-green.png" />
+    <Content Include="Content\icons8-dyndns-64-red.png" />
+    <Content Include="Content\icons8-dyndns-96-green.png" />
+    <Content Include="Content\icons8-dyndns-96-red.png" />
+    <None Include="Content\link.ico" />
+    <None Include="Content\disconnected.ico" />
+    <None Include="Content\app-disconnected.ico" />
+    <None Include="Content\app-connected.ico" />
+    <None Include="Content\connected.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\domain\domain.office\domain.office.csproj">
-      <Project>{334ff69b-4816-4ba7-a2a1-ba87fb03cf2a}</Project>
-      <Name>domain.office</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.111.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.111.0\build\net45\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

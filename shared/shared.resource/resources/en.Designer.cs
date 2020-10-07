@@ -8,8 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shared.resource.resources {
+namespace assets.resource.resources {
     using System;
+    using System.Reflection;
     
     
     /// <summary>
@@ -39,7 +40,7 @@ namespace shared.resource.resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("shared.resource.resources.en", typeof(en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("assets.resource.resources.en", typeof(en).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,150 +58,6 @@ namespace shared.resource.resources {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Authentication Failed.
-        /// </summary>
-        internal static string AuthenticationFailed {
-            get {
-                return ResourceManager.GetString("AuthenticationFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Connection error.
-        /// </summary>
-        internal static string ConnectionError {
-            get {
-                return ResourceManager.GetString("ConnectionError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dangerous Request.
-        /// </summary>
-        internal static string DangerousRequest {
-            get {
-                return ResourceManager.GetString("DangerousRequest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Defective entry.
-        /// </summary>
-        internal static string DefectiveEntry {
-            get {
-                return ResourceManager.GetString("DefectiveEntry", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DeviceId not found.
-        /// </summary>
-        internal static string DeviceIdNotFound {
-            get {
-                return ResourceManager.GetString("DeviceIdNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Empty Id.
-        /// </summary>
-        internal static string EmptyId {
-            get {
-                return ResourceManager.GetString("EmptyId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Internal server error.
-        /// </summary>
-        internal static string InternalServerError {
-            get {
-                return ResourceManager.GetString("InternalServerError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid signin attempt.
-        /// </summary>
-        internal static string InvalidSigninAttempt {
-            get {
-                return ResourceManager.GetString("InvalidSigninAttempt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nothing found.
-        /// </summary>
-        internal static string NothingFound {
-            get {
-                return ResourceManager.GetString("NothingFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ok.
-        /// </summary>
-        internal static string Ok {
-            get {
-                return ResourceManager.GetString("Ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Phone is not verified.
-        /// </summary>
-        internal static string PhoneIsNotVerified {
-            get {
-                return ResourceManager.GetString("PhoneIsNotVerified", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Restricted keyword(s) detected.
-        /// </summary>
-        internal static string RestrictedKeywordDetection {
-            get {
-                return ResourceManager.GetString("RestrictedKeywordDetection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Retrieve limit.
-        /// </summary>
-        internal static string RetrieveLimit {
-            get {
-                return ResourceManager.GetString("RetrieveLimit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Token not found.
-        /// </summary>
-        internal static string TokenNotFound {
-            get {
-                return ResourceManager.GetString("TokenNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unexpected rror.
-        /// </summary>
-        internal static string UnexpectedError {
-            get {
-                return ResourceManager.GetString("UnexpectedError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User is not active.
-        /// </summary>
-        internal static string UserIsNotActive {
-            get {
-                return ResourceManager.GetString("UserIsNotActive", resourceCulture);
             }
         }
     }

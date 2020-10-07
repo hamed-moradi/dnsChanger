@@ -10,6 +10,6 @@ namespace shared.model.dashboard_models {
         public string Message { get; set; }
         public object Data { get; set; }
         public int? TotalPages { get; set; }
-        public string Version { get { return Assembly.GetEntryAssembly().GetName().Version.ToString(); } }
+        //public string Version { get { return Assembly.GetEntryAssembly().GetName().Version.ToString(); } }
     }
 }

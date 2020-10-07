@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace presentation.desktopApp {
+namespace Presentation.DesktopApp {
     static class Program {
         [STAThread]
         static void Main() {

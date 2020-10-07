@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace presentation.desktopApp {
+namespace Presentation.DesktopApp {
     public class Startup {
         public Startup() {
             new MainForm().Hide();

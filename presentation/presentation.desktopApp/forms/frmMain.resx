@@ -367,7 +367,7 @@
     <value>iptxtAlternateDNS</value>
   </data>
   <data name="&gt;&gt;iptxtAlternateDNS.Type" xml:space="preserve">
-    <value>IPTextBox.IPTextBox, presentation.desktopApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>IPTextBox.IPTextBox, Presentation.DesktopApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;iptxtAlternateDNS.Parent" xml:space="preserve">
     <value>grbDNS</value>
@@ -394,7 +394,7 @@
     <value>iptxtPreferredDNS</value>
   </data>
   <data name="&gt;&gt;iptxtPreferredDNS.Type" xml:space="preserve">
-    <value>IPTextBox.IPTextBox, presentation.desktopApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>IPTextBox.IPTextBox, Presentation.DesktopApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;iptxtPreferredDNS.Parent" xml:space="preserve">
     <value>grbDNS</value>

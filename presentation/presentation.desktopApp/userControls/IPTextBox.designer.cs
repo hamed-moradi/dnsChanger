@@ -26,11 +26,10 @@
             this.lblDot3 = new System.Windows.Forms.Label();
             this.lblDot2 = new System.Windows.Forms.Label();
             this.lblDot1 = new System.Windows.Forms.Label();
-            this.cmbIPs = new System.Windows.Forms.ComboBox();
-            this.txtSegment4 = new presentation.desktopApp.helper.ExtendedTextBox();
-            this.txtSegment3 = new presentation.desktopApp.helper.ExtendedTextBox();
-            this.txtSegment2 = new presentation.desktopApp.helper.ExtendedTextBox();
-            this.txtSegment1 = new presentation.desktopApp.helper.ExtendedTextBox();
+            this.txtSegment4 = new Presentation.DesktopApp.Helper.ExtendedTextBox();
+            this.txtSegment3 = new Presentation.DesktopApp.Helper.ExtendedTextBox();
+            this.txtSegment2 = new Presentation.DesktopApp.Helper.ExtendedTextBox();
+            this.txtSegment1 = new Presentation.DesktopApp.Helper.ExtendedTextBox();
             this.SuspendLayout();
             // 
             // lblDot3
@@ -65,18 +64,6 @@
             this.lblDot1.Size = new System.Drawing.Size(13, 20);
             this.lblDot1.TabIndex = 13;
             this.lblDot1.Text = ".";
-            // 
-            // cmbIPs
-            // 
-            this.cmbIPs.BackColor = System.Drawing.Color.White;
-            this.cmbIPs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbIPs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbIPs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbIPs.Location = new System.Drawing.Point(0, 0);
-            this.cmbIPs.Name = "cmbIPs";
-            this.cmbIPs.Size = new System.Drawing.Size(157, 21);
-            this.cmbIPs.TabIndex = 4;
-            this.cmbIPs.TabStop = false;
             // 
             // txtSegment4
             // 
@@ -137,11 +124,10 @@
             this.Controls.Add(this.lblDot1);
             this.Controls.Add(this.lblDot2);
             this.Controls.Add(this.lblDot3);
-            this.Controls.Add(this.cmbIPs);
-            this.MaximumSize = new System.Drawing.Size(157, 21);
-            this.MinimumSize = new System.Drawing.Size(157, 21);
+            this.MaximumSize = new System.Drawing.Size(140, 21);
+            this.MinimumSize = new System.Drawing.Size(140, 21);
             this.Name = "IPTextBox";
-            this.Size = new System.Drawing.Size(157, 21);
+            this.Size = new System.Drawing.Size(140, 21);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,13 +135,12 @@
 
         #endregion
         
-        private presentation.desktopApp.helper.ExtendedTextBox txtSegment4;
-        private presentation.desktopApp.helper.ExtendedTextBox txtSegment3;
-        private presentation.desktopApp.helper.ExtendedTextBox txtSegment2;
-        private presentation.desktopApp.helper.ExtendedTextBox txtSegment1;
+        private Presentation.DesktopApp.Helper.ExtendedTextBox txtSegment4;
+        private Presentation.DesktopApp.Helper.ExtendedTextBox txtSegment3;
+        private Presentation.DesktopApp.Helper.ExtendedTextBox txtSegment2;
+        private Presentation.DesktopApp.Helper.ExtendedTextBox txtSegment1;
         private System.Windows.Forms.Label lblDot3;
         private System.Windows.Forms.Label lblDot2;
         private System.Windows.Forms.Label lblDot1;
-        public System.Windows.Forms.ComboBox cmbIPs;
     }
 }

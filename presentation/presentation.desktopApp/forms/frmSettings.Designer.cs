@@ -1,4 +1,4 @@
-﻿namespace presentation.desktopApp.forms {
+﻿namespace Presentation.DesktopApp.forms {
     partial class frmSettings {
         /// <summary>
         /// Required designer variable.
@@ -40,10 +40,20 @@
             this.txtLogFolder = new System.Windows.Forms.TextBox();
             this.lblLogFolder = new System.Windows.Forms.Label();
             this.tapDNS = new System.Windows.Forms.TabPage();
+            this.grbDnsList = new System.Windows.Forms.GroupBox();
+            this.grdDNSAddress = new System.Windows.Forms.DataGridView();
+            this.grbConfigureDNS = new System.Windows.Forms.GroupBox();
+            this.lblIP = new System.Windows.Forms.Label();
             this.tapSchedule = new System.Windows.Forms.TabPage();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
+            this.ipTextBox = new IPTextBox.IPTextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.grpUserInterface.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tapGeneral.SuspendLayout();
@@ -51,6 +61,10 @@
             this.grpStartup.SuspendLayout();
             this.tapAdvanced.SuspendLayout();
             this.grbLogFiles.SuspendLayout();
+            this.tapDNS.SuspendLayout();
+            this.grbDnsList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDNSAddress)).BeginInit();
+            this.grbConfigureDNS.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpUserInterface
@@ -158,9 +172,46 @@
             // 
             // tapDNS
             // 
+            this.tapDNS.Controls.Add(this.grbDnsList);
+            this.tapDNS.Controls.Add(this.grbConfigureDNS);
             resources.ApplyResources(this.tapDNS, "tapDNS");
             this.tapDNS.Name = "tapDNS";
             this.tapDNS.UseVisualStyleBackColor = true;
+            // 
+            // grbDnsList
+            // 
+            this.grbDnsList.Controls.Add(this.grdDNSAddress);
+            resources.ApplyResources(this.grbDnsList, "grbDnsList");
+            this.grbDnsList.Name = "grbDnsList";
+            this.grbDnsList.TabStop = false;
+            // 
+            // grdDNSAddress
+            // 
+            resources.ApplyResources(this.grdDNSAddress, "grdDNSAddress");
+            this.grdDNSAddress.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdDNSAddress.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.grdDNSAddress.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDNSAddress.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colIP,
+            this.colTag});
+            this.grdDNSAddress.Name = "grdDNSAddress";
+            this.grdDNSAddress.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            // 
+            // grbConfigureDNS
+            // 
+            this.grbConfigureDNS.Controls.Add(this.cmbType);
+            this.grbConfigureDNS.Controls.Add(this.btnSave);
+            this.grbConfigureDNS.Controls.Add(this.ipTextBox);
+            this.grbConfigureDNS.Controls.Add(this.lblIP);
+            resources.ApplyResources(this.grbConfigureDNS, "grbConfigureDNS");
+            this.grbConfigureDNS.Name = "grbConfigureDNS";
+            this.grbConfigureDNS.TabStop = false;
+            // 
+            // lblIP
+            // 
+            resources.ApplyResources(this.lblIP, "lblIP");
+            this.lblIP.Name = "lblIP";
             // 
             // tapSchedule
             // 
@@ -189,6 +240,48 @@
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
             // 
+            // ipTextBox
+            // 
+            this.ipTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.ipTextBox, "ipTextBox");
+            this.ipTextBox.Name = "ipTextBox";
+            this.ipTextBox.Value = "...";
+            // 
+            // btnSave
+            // 
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.Name = "btnSave";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // colId
+            // 
+            resources.ApplyResources(this.colId, "colId");
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            // 
+            // colIP
+            // 
+            resources.ApplyResources(this.colIP, "colIP");
+            this.colIP.Name = "colIP";
+            this.colIP.ReadOnly = true;
+            // 
+            // colTag
+            // 
+            resources.ApplyResources(this.colTag, "colTag");
+            this.colTag.Name = "colTag";
+            this.colTag.ReadOnly = true;
+            // 
+            // cmbType
+            // 
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
+            resources.GetString("cmbType.Items"),
+            resources.GetString("cmbType.Items1")});
+            resources.ApplyResources(this.cmbType, "cmbType");
+            this.cmbType.Name = "cmbType";
+            // 
             // frmSettings
             // 
             resources.ApplyResources(this, "$this");
@@ -216,6 +309,11 @@
             this.tapAdvanced.ResumeLayout(false);
             this.grbLogFiles.ResumeLayout(false);
             this.grbLogFiles.PerformLayout();
+            this.tapDNS.ResumeLayout(false);
+            this.grbDnsList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDNSAddress)).EndInit();
+            this.grbConfigureDNS.ResumeLayout(false);
+            this.grbConfigureDNS.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +341,15 @@
         private System.Windows.Forms.Button btnLogFolder;
         private System.Windows.Forms.TextBox txtLogFolder;
         private System.Windows.Forms.Label lblLogFolder;
+        private System.Windows.Forms.GroupBox grbDnsList;
+        private System.Windows.Forms.DataGridView grdDNSAddress;
+        private System.Windows.Forms.GroupBox grbConfigureDNS;
+        private System.Windows.Forms.Label lblIP;
+        private IPTextBox.IPTextBox ipTextBox;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTag;
+        private System.Windows.Forms.ComboBox cmbType;
     }
 }

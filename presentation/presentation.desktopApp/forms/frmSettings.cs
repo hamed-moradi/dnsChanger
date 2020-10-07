@@ -1,26 +1,27 @@
-﻿using domain.office.containers;
-using domain.office.entities;
-using presentation.desktopApp.helper;
-using presentation.desktopApp.Properties;
+﻿using Presentation.DesktopApp.Services;
+using Presentation.DesktopApp.Entities;
+using Presentation.DesktopApp.Helper;
+using Presentation.DesktopApp.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace presentation.desktopApp.forms {
+
+namespace Presentation.DesktopApp.forms {
     public partial class frmSettings: Form {
         #region ctor
+        private int? selectedIP = null;
         private AppConfiguration _savedConf;
         private readonly AppConfigurationContainer _appConfContainer;
+        private readonly DNSAddressContainer _dnsAddressContainer;
+
         public frmSettings() {
             _savedConf = new AppConfiguration();
             _appConfContainer = new AppConfigurationContainer();
+            _dnsAddressContainer = new DNSAddressContainer();
 
             InitializeComponent();
 
@@ -100,6 +101,32 @@ namespace presentation.desktopApp.forms {
         }
 
         private void frmSettings_Activated(object sender, EventArgs e) {
+        }
+
+        private async void btnSave_Click(object sender, EventArgs e) {
+            if(btnSave.Text == "Add") {
+                await _dnsAddressContainer.Add(new DNSAddress {
+                    IP = ipTextBox.Value,
+                    Type = 1,
+                    CreatedAt = DateTime.Now
+                });
+            }
+            else if(btnSave.Text == "Update") {
+                var row = grdDNSAddress.CurrentRow;
+                if(row != null) {
+                    var cell = row.Cells["colId"]?.Value;
+                    if(cell != null) {
+                        await _dnsAddressContainer.Update(new DNSAddress {
+                            Id = (int)cell,
+                            IP = ipTextBox.Value,
+                            Type = cmbType.SelectedItem.ToTypeNumber()
+                        });
+                    }
+                }
+            }
+            else {
+
+            }
         }
     }
 }

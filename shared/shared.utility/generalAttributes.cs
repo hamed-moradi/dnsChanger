@@ -29,10 +29,4 @@ namespace shared.utility {
         }
     }
     public class HelperParameterAttribute: Attribute { }
-    public class SearchAttribute: Attribute {
-        public SearchFieldType Type { get; }
-        public SearchAttribute(SearchFieldType type = SearchFieldType.String) {
-            Type = type;
-        }
-    }
 }

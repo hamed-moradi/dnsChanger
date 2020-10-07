@@ -60,7 +60,7 @@
     <ProjectReference Include="..\..\Domain\Domain.Application\domain.application.csproj" />
     <ProjectReference Include="..\..\shared\shared.model\shared.model.csproj" />
     <ProjectReference Include="..\..\shared\shared.resource\shared.resource.csproj" />
-    <ProjectReference Include="..\..\shared\shared.utility\shared.utility.csproj" />
+    <ProjectReference Include="..\..\shared\shared.utility\assets.utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
